@@ -8,11 +8,12 @@
 
 #include <iostream>
 
+#include "jsonxx.h"
+
 int main(int argc, const char * argv[])
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
-
-    return 0;
+  jsonxx::Object o;
+  o.parse("{ \"foo\": 1 };");
+  std::cout << o.json() << std::endl;
+  return 0;
 }
