@@ -14,4 +14,6 @@ ExternalProject_Add(
 include_directories(${CMAKE_BINARY_DIR}/include)
 link_directories(${CMAKE_BINARY_DIR}/lib)
 
+SET(LINK_LIBRARY optimized JsonBox debug JsonBox_d)
+
 add_subdirectory(src)
