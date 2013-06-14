@@ -3,5 +3,12 @@ cmake_minimum_required(VERSION 2.8)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-add_subdirectory(ext)
+include(ExternalProject)
+
+ExternalProject_Add(
+  JsonBox_LIB
+  GIT_REPOSITORY https://github.com/anhero/JsonBox
+  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}
+)
+
 add_subdirectory(src)

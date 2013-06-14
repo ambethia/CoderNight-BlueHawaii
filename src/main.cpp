@@ -8,12 +8,13 @@
 
 #include <iostream>
 
-#include "jsonxx.h"
+#include "JsonBox.h"
 
 int main(int argc, const char * argv[])
 {
-  jsonxx::Object o;
-  o.parse("{ \"foo\": 1 };");
-  std::cout << o.json() << std::endl;
+  JsonBox::Object o;
+  o["myName"] = JsonBox::Value(123);
+  JsonBox::Value v(o);
+  v.writeToStream(std::cout, true, true);
   return 0;
 }
