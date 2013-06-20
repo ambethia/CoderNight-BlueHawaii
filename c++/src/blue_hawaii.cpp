@@ -1,5 +1,5 @@
 //
-//  blue_hawaii.hpp
+//  blue_hawaii.cpp
 //  BlueHawaii
 //
 //  Created by Jason L Perry on 06/20/2013.
@@ -8,12 +8,21 @@
 
 #include "blue_hawaii.hpp"
 
-BlueHawaii::BlueHawaii ()
+BlueHawaii::BlueHawaii (
+  const char * reservation_file,
+  const char * rentals_file
+)
 {
-  JsonBox::Object o;
-  o["myName"] = JsonBox::Value(123);
-  JsonBox::Value v(o);
-  v.writeToStream(std::cout, true, true);
+  // Load reservation dates from file
+  std::string reservation_string;
+  std::ifstream file;
+  file.open (reservation_file);
+  std::getline (file, reservation_string);
+
+  file.close();
+
+  // Load JSON data from rentals file
+  JsonBox::Value data;
+  data.loadFromFile (rentals_file);
+  data.writeToStream (std::cout, true, true);
 }
-
-

@@ -6,14 +6,18 @@
 //  Copyright (c) 2013 Jason L Perry. All rights reserved.
 //
 
-#include <string>
+#include <fstream>
 #include <iostream>
+#include <string>
 
 #include "JsonBox.h"
 
 class BlueHawaii
 {
   public:
-    BlueHawaii();
+    BlueHawaii (
+      const char * reservation_file,
+      const char * rentals_file
+    );
 };
 

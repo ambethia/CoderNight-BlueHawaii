@@ -1,9 +1,4 @@
-CoderNight-BlueHawaii
-=====================
-
-My submission for June 2013's Coder Night.
-
-This month I'm continuing to learn C++, and exploring setting up a cross-platform build setup with CMake and third-party dependencies.
+To build:
 
     git submodule update --init
 
@@ -21,3 +16,7 @@ Or, specify a specific project type:
 Now you can run `make`, open the IDE project, or use cmake to build:
 
     `cmake --build .`
+
+Running it:
+
+    ./bin/blue-hawaii ../puzzle/input.txt ../puzzle/vacation_rentals.json
