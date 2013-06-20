@@ -32,7 +32,7 @@ class BlueHawaii
 
     def initialize(data)
       @name = data["name"]
-      @fee = BlueHawaii.money_to_number(data["cleaning fee"]) 
+      @fee = BlueHawaii.money_to_number(data["cleaning fee"])
       @seasons = if data["seasons"]
         data["seasons"].map { |s| Season.new(*s.values[0].values_at(*%w[rate start end])) }
       else
@@ -41,7 +41,7 @@ class BlueHawaii
     end
 
     def total_for_range(dates)
-      total = dates.to_a[0..-2].map { |d| rate(d) }.inject(:+)
+      total = dates.first(dates.count - 1).map { |d| rate(d) }.inject(:+)
       total += fee
       total += total * (TAX_RATE / 100)
     end
